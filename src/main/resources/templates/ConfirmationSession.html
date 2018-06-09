@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>LO54</title>
+    <link rel="stylesheet" type="text/css"
+          href="../static/css/bootstrap.min.css"
+          th:href="@{/css/bootstrap.min.css}"/>
+
+    <link rel="stylesheet" type="text/css"
+          href="../static/css/style.css"
+          th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">Confirmation Session</div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label>start date: </label>
+                <label th:text="${courseSession.startDate}"></label>
+            </div>
+            <div class="form-group">
+                <label>end date: </label>
+                <label th:text="${courseSession.endDate}"></label>
+            </div>
+            <div class="form-group">
+                <label>Max: </label>
+                <label th:text="${courseSession.maxNumberOfStudents}"></label>
+            </div>
+            <div class="form-group">
+                <label>id course session: </label>
+                <label th:text="${courseSession.id}"></label>
+            </div>
+            <div class="form-group">
+                <label>code course: </label>
+                <label th:text="${courseSession.course.code}"></label>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Clients</title>
+
+    <link rel="stylesheet" type="text/css"
+          href="../static/css/bootstrap.min.css"
+          th:href="@{css/bootstrap.min.css}"/>
+
+    <link rel="stylesheet" type="text/css"
+          href="../static/css/style.css"
+          th:href="@{css/style.css}"/>
+</head>
+<body>
+<div>
+<div class="container">
+    <form th:action="@{index}" method="get">
+    <label>Key word:</label>
+    <input type="text" name="kw" th:value="${keyWord}"/>
+    <button class="btn btn-primary">Find</button>
+        <a th:href="@{/login?logout}" th:inline="text">
+            [[${#httpServletRequest.remoteUser}]]
+        </a>
+    </form>
+    <div th:if="${exception}" th:text="${exception.message}" class="text-danger">
+
+    </div>
+</div>
+
+    <div class="container">
+        <form th:action="@{index}" method="get">
+        <ul class="nav nav-pills">
+            <li>
+                <a><p>Min to Max</p></a>
+            </li>
+            <li>
+                <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=maxNumberOfStudents)}" name="sortBy" th:value="${maxNumberOfStudents}">Max</a>
+            </li>
+            <li>
+                <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=endDate)}" name="sortBy" th:value="${endDate}">End Date</a>
+            </li>
+            <li>
+                <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=startDate)}" name="sortBy" th:value="${startDate}">Start Date</a>
+            </li>
+            <li>
+                <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=id)}" name="sortBy" th:value="${id}">id</a>
+            </li>
+        </ul>
+        </form>
+    </div>
+
+    <div class="container">
+        <form th:action="@{index}" method="get">
+            <ul class="nav nav-pills">
+                <li>
+                    <a><p>Max to Min</p></a>
+                </li>
+                <li>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=maxNumberOfStudents)}" name="sortBy" th:value="${maxNumberOfStudents}">Max</a>
+                </li>
+                <li>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=endDate)}" name="sortBy" th:value="${endDate}">End Date</a>
+                </li>
+                <li>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=startDate)}" name="sortBy" th:value="${startDate}">Start Date</a>
+                </li>
+                <li>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=id)}" name="sortBy" th:value="${id}">id</a>
+                </li>
+            </ul>
+        </form>
+    </div>
+
+    <form class="col-md-4" th:action="@{index}" method="get">
+        <label>
+            Location
+            <select name="locationId">
+                <option th:each="location : ${locationList}"
+                        th:value="${location.id}"
+                        th:text="${location.city}">
+                </option>
+            </select>
+        </label>
+            <button class="btn btn-primary">Chercher</button>
+    </form>
+
+
+<div class="container">
+    <h3>List of courseSession</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id Session</th>
+            <th>Start date</th>
+            <th>End date</th>
+            <th>Course name</th>
+            <th>Location</th>
+            <th>Max number of student</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="c:${listSessions}">
+            <td th:text="${c.id}"></td>
+            <td th:text="${c.startDate}"></td>
+            <td th:text="${c.endDate}"></td>
+            <td th:text="${c.course.getTitle()}"></td>
+            <td th:text="${c.location.getCity()}"></td>
+            <td th:text="${c.maxNumberOfStudents}"></td>
+            <td><a onclick="return alert('Vous voulez vous inscrire dans ce cours ?')" th:href="@{/add(id=${c.id},page=${currentPage},size=${size},keyWord=${keyWord})}">Register</a></td>
+            <td><a th:href="@{/edit(id=${c.id})}">Edit</a></td>
+            <td><a onclick="return confirm('Vous voulez supprimer dans ce cours ?')"th:href="@{delete(id=${c.id},page=${currentPage},size=${size},kw=${keyWord})}">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="container">
+     <ul class="nav nav-pills">
+         <li th:class="(${currentPage}==${status.index}?'active':'')" th:each="pa,status:${pages}">
+             <a th:href="@{index(page=${status.index},size=${size},kw=${keyWord})}" th:text="${status.index}"></a>
+         </li>
+     </ul>
+</div>
+</div>
+</body>
+</html>

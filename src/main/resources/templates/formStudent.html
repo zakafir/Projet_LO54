@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Form Student</title>
+
+    <link rel="stylesheet" type="text/css"
+          href="../static/css/bootstrap.min.css"
+          th:href="@{css/bootstrap.min.css}"/>
+
+    <link rel="stylesheet" type="text/css"
+          href="../static/css/style.css"
+          th:href="@{css/style.css}"/>
+</head>
+<body>
+<div class="spacer col-md-6 col-xs-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">Formulaire d'un client</div>
+        <div class="panel-body">
+            <form th:action="@{save}" method="post">
+                <div class="form-group">
+                    <label class="control-label">First name</label>
+                    <input class="form-control" type="text" name="firstName"
+                           th:value="${student.firstName}"/>
+                    <span class="red" th:errors="${student.firstName}"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Last name</label>
+                    <input class="form-control" type="text" name="lastName"
+                           th:value="${student.lastName}"/>
+                    <span class="red" th:errors="${student.lastName}"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Email</label>
+                    <input class="form-control" type="text" name="email"
+                           th:value="${student.email}"/>
+                    <span class="red" th:errors="${student.email}"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Phone</label>
+                    <input class="form-control" type="text" name="phone"
+                           th:value="${student.phone}"/>
+                    <span class="red" th:errors="${student.phone}"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Address</label>
+                    <input class="form-control" type="text" name="address"
+                           th:value="${student.address}"/>
+                    <span class="red" th:errors="${student.address}"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Session</label>
+                    <input class="form-control" type="text" name="student.courseSession"
+                           th:value="${idSessions}"/>
+                    <span class="red" th:errors="${idSessions}"></span>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
