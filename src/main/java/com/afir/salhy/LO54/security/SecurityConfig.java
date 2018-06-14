@@ -13,19 +13,8 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private DataSource dataSource;
-
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-
-        /*auth.jdbcAuthentication()
-                .dataSource(dataSource)
-                .usersByUsernameQuery
-                        ("select first_name as principal, pass as credentials, active from Student where first_name = ?")
-                .authoritiesByUsernameQuery("select first_name as principal, role as role from USERS_ROLE where first_name = ?")
-                .passwordEncoder(new BCryptPasswordEncoder())
-                .rolePrefix("ROLE_");*/
 
         auth.inMemoryAuthentication()
                 .withUser("admin")
@@ -45,12 +34,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             http.csrf().disable();
             http.authorizeRequests()
                     .antMatchers(
-                            "/user/*")
-                    .hasRole("USER");
+                            "/index/",
+                            "/save", "/edit", "/delete")
+                    .hasRole("ADMIN");
 
         http.authorizeRequests()
-                .antMatchers("/admin/*")
-                .hasRole("ADMIN");
+                .antMatchers("/index/","/form",
+                        "/save", "/add")
+                .hasRole("USER");
 
         //En fonction des rôles (admin / user), user n'a pas accès
         http.exceptionHandling().accessDeniedPage("/403");

@@ -22,8 +22,7 @@ public class Student implements Serializable {
     private String lastName;
     @NotNull
     private String firstName;
-    private String pass;
-    private String active;
+
     @NotNull
     @Size(min=1, max=80)
     private String address;
@@ -134,21 +133,6 @@ public class Student implements Serializable {
                 '}';
     }
 
-    public String getPass() {
-        return pass;
-    }
-
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
-
-    public String getActive() {
-        return active;
-    }
-
-    public void setActive(String active) {
-        this.active = active;
-    }
 
     public CourseSession getCourseSession() {
         return courseSession;

@@ -21,7 +21,6 @@
 <div class="container">
     <form th:action="@{index}" method="get">
         <br>
-        <br>
     <label>Key word:</label>
     <input type="text" name="kw" th:value="${keyWord}"/>
     <button class="btn btn-primary">Find</button>
@@ -34,45 +33,49 @@
     </div>
 </div>
 
+    <br>
+
     <div class="container">
         <form th:action="@{index}" method="get">
         <ul class="nav nav-pills">
             <li>
-                <a><p>min to max: </p></a>
+                <a><p>MIN TO MAX: &nbsp;</p></a>
             </li>
             <li>
-                <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=maxNumberOfStudents,using=ASC)}" name="sortBy" th:value="${maxNumberOfStudents}">Max</a>
+                <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=maxNumberOfStudents,using=ASC)}" name="sortBy" th:value="${maxNumberOfStudents}"> Max&nbsp;</a>
             </li>
             <li>
-                <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=endDate,using=ASC)}" name="sortBy" th:value="${endDate}">End Date</a>
+                <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=endDate,using=ASC)}" name="sortBy" th:value="${endDate}">End-Date&nbsp;</a>
             </li>
             <li>
-                <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=startDate,using=ASC)}" name="sortBy" th:value="${startDate}">Start Date</a>
+                <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=startDate,using=ASC)}" name="sortBy" th:value="${startDate}">Start-Date&nbsp;</a>
             </li>
             <li>
-                <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=id,using=ASC)}" name="sortBy" th:value="${id}">id</a>
+                <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=id,using=ASC)}" name="sortBy" th:value="${id}">ID</a>
             </li>
         </ul>
         </form>
     </div>
 
+    <br>
+
     <div class="container">
         <form th:action="@{index}" method="get">
             <ul class="nav nav-pills">
                 <li>
-                    <a><p>max to min: </p></a>
+                    <a><p>MAX TO MIN: &nbsp;</p></a>
                 </li>
                 <li>
-                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=maxNumberOfStudents,using=DESC)}" name="sortBy" th:value="${maxNumberOfStudents}">Max</a>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=maxNumberOfStudents,using=DESC)}" name="sortBy" th:value="${maxNumberOfStudents}"> Max&nbsp;</a>
                 </li>
                 <li>
-                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=endDate,using=DESC)}" name="sortBy" th:value="${endDate}">End Date</a>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=endDate,using=DESC)}" name="sortBy" th:value="${endDate}">End-Date&nbsp;</a>
                 </li>
                 <li>
-                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=startDate,using=DESC)}" name="sortBy" th:value="${startDate}">Start Date</a>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=startDate,using=DESC)}" name="sortBy" th:value="${startDate}">Start-Date&nbsp;</a>
                 </li>
                 <li>
-                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=id,using=DESC)}" name="sortBy" th:value="${id}">id</a>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=id,using=DESC)}" name="sortBy" th:value="${id}">ID</a>
                 </li>
             </ul>
         </form>
@@ -88,13 +91,13 @@
                     <a><p>Start date: </p></a>
                 </li>
                 <li>
-                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2015,with=startDate)}" name="finding" th:value="${2015}">2015</a>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2015,with=startDate)}" name="finding" th:value="${2015}">2015&nbsp;</a>
                 </li>
                 <li>
-                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2016,with=startDate)}" name="finding" th:value="${2016}">2016</a>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2016,with=startDate)}" name="finding" th:value="${2016}">2016&nbsp;</a>
                 </li>
                 <li>
-                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2017,with=startDate)}" name="finding" th:value="${2017}">2017</a>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2017,with=startDate)}" name="finding" th:value="${2017}">2017&nbsp;</a>
                 </li>
                 <li>
                     <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2018,with=startDate)}" name="finding" th:value="${2018}">2018</a>
@@ -111,13 +114,13 @@
                     <a><p>End date: </p></a>
                 </li>
                 <li>
-                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2015,with=endDate)}" name="finding" th:value="${2015}">2015</a>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2015,with=endDate)}" name="finding" th:value="${2015}">2015&nbsp;</a>
                 </li>
                 <li>
-                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2016,with=endDate)}" name="finding" th:value="${2016}">2016</a>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2016,with=endDate)}" name="finding" th:value="${2016}">2016&nbsp;</a>
                 </li>
                 <li>
-                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2017,with=endDate)}" name="finding" th:value="${2017}">2017</a>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2017,with=endDate)}" name="finding" th:value="${2017}">2017&nbsp;</a>
                 </li>
                 <li>
                     <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2018,with=endDate)}" name="finding" th:value="${2018}">2018</a>
@@ -127,11 +130,32 @@
     </div>
 
 
+    <div class="container">
+        <form th:action="@{locations}" method="get">
+            <ul class="nav nav-pills">
+                <li>
+                    <a><p>Location: </p></a>
+                </li>
+                <li>
+                    <a th:href="@{locations(page=${currentPage},size=${size},kw=${keyWord},city=Paris)}" name="location" th:value="${city}">Paris&nbsp;</a>
+                </li>
+                <li>
+                    <a th:href="@{locations(page=${currentPage},size=${size},kw=${keyWord},city=Londres)}" name="location" th:value="${city}">Londres&nbsp;</a>
+                </li>
+                <li>
+                    <a th:href="@{locations(page=${currentPage},size=${size},kw=${keyWord},city=Madrid)}" name="location" th:value="${city}">Madrid</a>
+                </li>
+            </ul>
+        </form>
+    </div>
+
+
+
 
 
 
     <div class="container">
-    <h3>List of courseSession</h3>
+    <h3>List of course sessions</h3>
     <table class="table">
         <thead>
         <tr>

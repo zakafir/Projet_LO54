@@ -24,9 +24,6 @@ public class StudentController {
     @RequestMapping(value = "/save",method = RequestMethod.POST)
     public String save(@Autowired Model model, @Valid Student student, BindingResult bindingResult, Long id){
         id = idSession;
-        student.courseSession = new CourseSession();
-
-        //student.courseSession.setId(idSession);
         model.addAttribute("student", student);
         model.addAttribute("idSession", id);
         if(bindingResult.hasErrors()){
