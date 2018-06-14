@@ -19,7 +19,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication()
                 .withUser("admin")
                 .password("{noop}admin")
-                .roles("USER","ADMIN");
+                .roles("USER", "ADMIN");
 
         auth.inMemoryAuthentication()
                 .withUser("user")
@@ -30,16 +30,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-            http.formLogin().loginPage("/login");
-            http.csrf().disable();
-            http.authorizeRequests()
-                    .antMatchers(
-                            "/index/",
-                            "/save", "/edit", "/delete")
-                    .hasRole("ADMIN");
+        http.formLogin().loginPage("/login");
+        http.csrf().disable();
+        http.authorizeRequests()
+                .antMatchers(
+                        "/index/",
+                        "/save", "/edit", "/delete")
+                .hasRole("ADMIN");
 
         http.authorizeRequests()
-                .antMatchers("/index/","/form",
+                .antMatchers("/index/", "/form",
                         "/save", "/add")
                 .hasRole("USER");
 

@@ -13,47 +13,52 @@
           th:href="@{css/bootstrap.min.css}"/>
 
     <link rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
 </head>
 <body>
 <div>
-<div class="container">
-    <form th:action="@{index}" method="get">
-        <br>
-    <label>Key word:</label>
-    <input type="text" name="kw" th:value="${keyWord}"/>
-    <button class="btn btn-primary">Find</button>
-        <a th:href="@{/login?logout}" th:inline="text">
-            [[${#httpServletRequest.remoteUser}]]
-        </a>
-    </form>
-    <div th:if="${exception}" th:text="${exception.message}" class="text-danger">
+    <div class="container">
+        <form th:action="@{index}" method="get">
+            <br>
+            <label>Key word:</label>
+            <input type="text" name="kw" th:value="${keyWord}"/>
+            <button class="btn btn-primary">Find</button>
+            <a th:href="@{/login?logout}" th:inline="text">
+                [[${#httpServletRequest.remoteUser}]]
+            </a>
+        </form>
+        <div th:if="${exception}" th:text="${exception.message}" class="text-danger">
 
+        </div>
     </div>
-</div>
 
     <br>
 
     <div class="container">
         <form th:action="@{index}" method="get">
-        <ul class="nav nav-pills">
-            <li>
-                <a><p>MIN TO MAX: &nbsp;</p></a>
-            </li>
-            <li>
-                <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=maxNumberOfStudents,using=ASC)}" name="sortBy" th:value="${maxNumberOfStudents}"> Max&nbsp;</a>
-            </li>
-            <li>
-                <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=endDate,using=ASC)}" name="sortBy" th:value="${endDate}">End-Date&nbsp;</a>
-            </li>
-            <li>
-                <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=startDate,using=ASC)}" name="sortBy" th:value="${startDate}">Start-Date&nbsp;</a>
-            </li>
-            <li>
-                <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=id,using=ASC)}" name="sortBy" th:value="${id}">ID</a>
-            </li>
-        </ul>
+            <ul class="nav nav-pills">
+                <li>
+                    <a><p>MIN TO MAX: &nbsp;</p></a>
+                </li>
+                <li>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=maxNumberOfStudents,using=ASC)}"
+                       name="sortBy" th:value="${maxNumberOfStudents}"> Max&nbsp;</a>
+                </li>
+                <li>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=endDate,using=ASC)}"
+                       name="sortBy" th:value="${endDate}">End-Date&nbsp;</a>
+                </li>
+                <li>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=startDate,using=ASC)}"
+                       name="sortBy" th:value="${startDate}">Start-Date&nbsp;</a>
+                </li>
+                <li>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=id,using=ASC)}"
+                       name="sortBy" th:value="${id}">ID</a>
+                </li>
+            </ul>
         </form>
     </div>
 
@@ -66,16 +71,20 @@
                     <a><p>MAX TO MIN: &nbsp;</p></a>
                 </li>
                 <li>
-                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=maxNumberOfStudents,using=DESC)}" name="sortBy" th:value="${maxNumberOfStudents}"> Max&nbsp;</a>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=maxNumberOfStudents,using=DESC)}"
+                       name="sortBy" th:value="${maxNumberOfStudents}"> Max&nbsp;</a>
                 </li>
                 <li>
-                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=endDate,using=DESC)}" name="sortBy" th:value="${endDate}">End-Date&nbsp;</a>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=endDate,using=DESC)}"
+                       name="sortBy" th:value="${endDate}">End-Date&nbsp;</a>
                 </li>
                 <li>
-                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=startDate,using=DESC)}" name="sortBy" th:value="${startDate}">Start-Date&nbsp;</a>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=startDate,using=DESC)}"
+                       name="sortBy" th:value="${startDate}">Start-Date&nbsp;</a>
                 </li>
                 <li>
-                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=id,using=DESC)}" name="sortBy" th:value="${id}">ID</a>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},sortBy=id,using=DESC)}"
+                       name="sortBy" th:value="${id}">ID</a>
                 </li>
             </ul>
         </form>
@@ -91,16 +100,20 @@
                     <a><p>Start date: </p></a>
                 </li>
                 <li>
-                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2015,with=startDate)}" name="finding" th:value="${2015}">2015&nbsp;</a>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2015,with=startDate)}"
+                       name="finding" th:value="${2015}">2015&nbsp;</a>
                 </li>
                 <li>
-                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2016,with=startDate)}" name="finding" th:value="${2016}">2016&nbsp;</a>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2016,with=startDate)}"
+                       name="finding" th:value="${2016}">2016&nbsp;</a>
                 </li>
                 <li>
-                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2017,with=startDate)}" name="finding" th:value="${2017}">2017&nbsp;</a>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2017,with=startDate)}"
+                       name="finding" th:value="${2017}">2017&nbsp;</a>
                 </li>
                 <li>
-                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2018,with=startDate)}" name="finding" th:value="${2018}">2018</a>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2018,with=startDate)}"
+                       name="finding" th:value="${2018}">2018</a>
                 </li>
             </ul>
         </form>
@@ -114,16 +127,20 @@
                     <a><p>End date: </p></a>
                 </li>
                 <li>
-                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2015,with=endDate)}" name="finding" th:value="${2015}">2015&nbsp;</a>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2015,with=endDate)}"
+                       name="finding" th:value="${2015}">2015&nbsp;</a>
                 </li>
                 <li>
-                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2016,with=endDate)}" name="finding" th:value="${2016}">2016&nbsp;</a>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2016,with=endDate)}"
+                       name="finding" th:value="${2016}">2016&nbsp;</a>
                 </li>
                 <li>
-                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2017,with=endDate)}" name="finding" th:value="${2017}">2017&nbsp;</a>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2017,with=endDate)}"
+                       name="finding" th:value="${2017}">2017&nbsp;</a>
                 </li>
                 <li>
-                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2018,with=endDate)}" name="finding" th:value="${2018}">2018</a>
+                    <a th:href="@{index(page=${currentPage},size=${size},kw=${keyWord},finding=2018,with=endDate)}"
+                       name="finding" th:value="${2018}">2018</a>
                 </li>
             </ul>
         </form>
@@ -137,60 +154,65 @@
                     <a><p>Location: </p></a>
                 </li>
                 <li>
-                    <a th:href="@{locations(page=${currentPage},size=${size},kw=${keyWord},city=Paris)}" name="location" th:value="${city}">Paris&nbsp;</a>
+                    <a th:href="@{locations(page=${currentPage},size=${size},kw=${keyWord},city=Paris)}" name="location"
+                       th:value="${city}">Paris&nbsp;</a>
                 </li>
                 <li>
-                    <a th:href="@{locations(page=${currentPage},size=${size},kw=${keyWord},city=Londres)}" name="location" th:value="${city}">Londres&nbsp;</a>
+                    <a th:href="@{locations(page=${currentPage},size=${size},kw=${keyWord},city=Londres)}"
+                       name="location" th:value="${city}">Londres&nbsp;</a>
                 </li>
                 <li>
-                    <a th:href="@{locations(page=${currentPage},size=${size},kw=${keyWord},city=Madrid)}" name="location" th:value="${city}">Madrid</a>
+                    <a th:href="@{locations(page=${currentPage},size=${size},kw=${keyWord},city=Madrid)}"
+                       name="location" th:value="${city}">Madrid</a>
                 </li>
             </ul>
         </form>
     </div>
 
 
-
-
-
-
     <div class="container">
-    <h3>List of course sessions</h3>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Id Session</th>
-            <th>Start date</th>
-            <th>End date</th>
-            <th>Course name</th>
-            <th>Location</th>
-            <th>Max number of student</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="c:${listSessions}">
-            <td th:text="${c.id}"></td>
-            <td th:text="${c.startDate}"></td>
-            <td th:text="${c.endDate}"></td>
-            <td th:text="${c.course.getTitle()}"></td>
-            <td th:text="${c.location.getCity()}"></td>
-            <td th:text="${c.maxNumberOfStudents}"></td>
-            <td><a onclick="return alert('Vous voulez vous inscrire dans ce cours ?')" th:href="@{add(id=${c.id},page=${currentPage},size=${size},keyWord=${keyWord})}">Register</a></td>
-            <td><a th:href="@{edit(id=${c.id})}">Edit</a></td>
-            <td><a onclick="return confirm('Vous voulez supprimer dans ce cours ?')"th:href="@{delete(id=${c.id},page=${currentPage},size=${size},kw=${keyWord})}">Delete</a></td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-<div class="container">
-     <ul class="nav nav-pills">
-         <li th:class="(${currentPage}==${status.index}?'active':'')" th:each="pa,status:${pages}">
-             <a th:href="@{index(page=${status.index},size=${size},kw=${keyWord},sortBy=id,using=DESC)}" th:text="${status.index}"></a>
-         </li>
-     </ul>
-</div>
+        <h3>List of course sessions</h3>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id Session</th>
+                <th>Start date</th>
+                <th>End date</th>
+                <th>Course name</th>
+                <th>Location</th>
+                <th>Max number of student</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="c:${listSessions}">
+                <td th:text="${c.id}"></td>
+                <td th:text="${c.startDate}"></td>
+                <td th:text="${c.endDate}"></td>
+                <td th:text="${c.course.getTitle()}"></td>
+                <td th:text="${c.location.getCity()}"></td>
+                <td th:text="${c.maxNumberOfStudents}"></td>
+                <td><a onclick="return alert('Vous voulez vous inscrire dans ce cours ?')"
+                       th:href="@{add(id=${c.id},page=${currentPage},size=${size},keyWord=${keyWord})}">Register</a>
+                </td>
+                <td><a th:href="@{edit(id=${c.id})}">Edit</a></td>
+                <td><a onclick="return confirm('Vous voulez supprimer dans ce cours ?')"
+                       th:href="@{delete(id=${c.id},page=${currentPage},size=${size},kw=${keyWord})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+        <ul class="nav nav-pills">
+            <li th:class="(${currentPage}==${status.index}?'active':'')" th:each="pa,status:${pages}">
+                <a th:href="@{index(page=${status.index},size=${size},kw=${keyWord},sortBy=id,using=DESC)}"
+                   th:text="${status.index}"></a>
+            </li>
+        </ul>
+    </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
 </body>
 </html>

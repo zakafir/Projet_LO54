@@ -12,7 +12,7 @@ public class Location implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID_LOCATION")
     private Long id;
-    @Column(unique=true)
+    @Column(unique = true)
     private String city;
 
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "location")

@@ -24,16 +24,16 @@ public class Student implements Serializable {
     private String firstName;
 
     @NotNull
-    @Size(min=1, max=80)
+    @Size(min = 1, max = 80)
     private String address;
-    @Size(min=1, max=18)
+    @Size(min = 1, max = 18)
     private String phone;
     @NotNull
-    @Size(min=1, max=30)
+    @Size(min = 1, max = 30)
     private String email;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="ID_COURSE_SESSION")
+    @JoinColumn(name = "ID_COURSE_SESSION")
     public CourseSession courseSession;
 
 
@@ -61,7 +61,6 @@ public class Student implements Serializable {
         this.email = email;
         this.courseSession = courseSession;
     }
-
 
 
     public Long getId() {

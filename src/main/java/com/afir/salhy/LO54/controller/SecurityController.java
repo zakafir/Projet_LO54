@@ -7,17 +7,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class SecurityController {
 
     @RequestMapping(value = "/login")
-    public String login(){
+    public String login() {
         return "login";
     }
 
     @RequestMapping(value = "/")
-    public String home(){
+    public String home() {
         return "redirect:/index";
     }
 
     @RequestMapping(value = "/403")
-    public String accessDenied(){
+    public String accessDenied() {
         return "403";
     }
 

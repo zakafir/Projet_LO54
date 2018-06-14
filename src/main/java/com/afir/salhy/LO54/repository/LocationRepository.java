@@ -8,8 +8,8 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface LocationRepository extends JpaRepository<Location,Long> {
+public interface LocationRepository extends JpaRepository<Location, Long> {
 
     @Query("select l from Location l where l.city like :x")
-    List<Course> findLocationByCity(@Param("x")String mc);
+    List<Course> findLocationByCity(@Param("x") String mc);
 }

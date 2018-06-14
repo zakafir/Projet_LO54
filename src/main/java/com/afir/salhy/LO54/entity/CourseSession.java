@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.time.LocalDate;
+
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
@@ -20,20 +21,20 @@ public class CourseSession implements Serializable {
     @Column(name = "ID_COURSE_SESSION")
     private Long id;
     @NotNull
-    @DateTimeFormat(iso=ISO.DATE)
+    @DateTimeFormat(iso = ISO.DATE)
     private LocalDate startDate;
 
     @NotNull
-    @DateTimeFormat(iso=ISO.DATE)
+    @DateTimeFormat(iso = ISO.DATE)
     private LocalDate endDate;
     private int maxNumberOfStudents;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="CODE_COURSE")
+    @JoinColumn(name = "CODE_COURSE")
     private Course course;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="ID_LOCATION")
+    @JoinColumn(name = "ID_LOCATION")
     private Location location;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "courseSession")
@@ -44,7 +45,7 @@ public class CourseSession implements Serializable {
 
     }
 
-    public CourseSession(Long id){
+    public CourseSession(Long id) {
         this.id = id;
     }
 

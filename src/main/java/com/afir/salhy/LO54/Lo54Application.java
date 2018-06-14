@@ -23,13 +23,7 @@ public class Lo54Application implements CommandLineRunner {
 
     public static void main(String[] args) {
 
-        ApplicationContext ctx = SpringApplication.run(Lo54Application.class, args);
-
-        CourseSessionRepository courseSessionRepository = ctx.getBean(CourseSessionRepository.class);
-
-        //courseSessionRepository.save(...);
-
-
+        SpringApplication.run(Lo54Application.class, args);
     }
 
     @Override
@@ -42,9 +36,9 @@ public class Lo54Application implements CommandLineRunner {
                         "099887777",
                         "rr@ff.fv",
                         new CourseSession(
-                                new Course("JAVA POO Part-3")
-                                , LocalDate.of(2015,01,01)
-                                , LocalDate.of(2020,01,01)
+                                new Course("JAVA POO Part-2")
+                                , LocalDate.of(2015, 01, 01)
+                                , LocalDate.of(2020, 01, 01)
                                 , 658
                                 , new Location("Londres")))
         );
@@ -59,11 +53,10 @@ public class Lo54Application implements CommandLineRunner {
                         "omar@gmail.fr",
                         new CourseSession(
                                 course
-                                , LocalDate.of(2016,01,01)
-                                , LocalDate.of(2017,01,01)
+                                , LocalDate.of(2016, 01, 01)
+                                , LocalDate.of(2017, 01, 01)
                                 , 153
-                                ,new Location("Paris"))));
-
+                                , new Location("Paris"))));
 
 
         Student student3 = studentDao.save(
@@ -74,8 +67,8 @@ public class Lo54Application implements CommandLineRunner {
                         "test@test.fr",
                         new CourseSession(
                                 new Course("JAVA POO Part-1")
-                                , LocalDate.of(2017,01,01)
-                                , LocalDate.of(2018,01,01)
+                                , LocalDate.of(2017, 01, 01)
+                                , LocalDate.of(2018, 01, 01)
                                 , 72
                                 , new Location("Madrid"))));
 

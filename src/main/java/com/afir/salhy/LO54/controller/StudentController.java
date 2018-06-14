@@ -21,22 +21,22 @@ public class StudentController {
     private StudentRepository studentRepository;
     private Long idSession;
 
-    @RequestMapping(value = "/save",method = RequestMethod.POST)
-    public String save(@Autowired Model model, @Valid Student student, BindingResult bindingResult, Long id){
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public String save(@Autowired Model model, @Valid Student student, BindingResult bindingResult, Long id) {
         id = idSession;
         model.addAttribute("student", student);
         model.addAttribute("idSession", id);
-        if(bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             return "formStudent";
         }
         studentRepository.save(student);
         return "confirmation";
     }
 
-    @RequestMapping(value = "/form",method = RequestMethod.GET)
-    public String formStudent(Model model, Long id){
+    @RequestMapping(value = "/form", method = RequestMethod.GET)
+    public String formStudent(Model model, Long id) {
         model.addAttribute("student", new Student(id));
-        model.addAttribute("idSessions",id);
+        model.addAttribute("idSessions", id);
         idSession = id;
         return "formStudent";
     }

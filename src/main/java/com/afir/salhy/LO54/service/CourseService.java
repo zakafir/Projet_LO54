@@ -13,19 +13,19 @@ public class CourseService {
     @Autowired
     private LocationRepository locationRepository;
 
-    public Iterable<Course> getAllCourse(){
+    public Iterable<Course> getAllCourse() {
         return courseRepository.findAll();
     }
 
-    public Iterable<Course> getCourseByCode(String courseCode){
+    public Iterable<Course> getCourseByCode(String courseCode) {
         return courseRepository.findByCodeEquals(courseCode);
     }
 
-    public Iterable<Course> getCourseByTitle(String courseTitle){
+    public Iterable<Course> getCourseByTitle(String courseTitle) {
         return courseRepository.findByTitleContainingIgnoreCase(courseTitle);
     }
 
-    public Iterable<Course> getCourseBySessionLocation(Location location){
+    public Iterable<Course> getCourseBySessionLocation(Location location) {
         return courseRepository.findBySessionLocation(location);
     }
 

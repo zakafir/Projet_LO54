@@ -36,11 +36,11 @@ public class CourseSessionController {
     public String courseSessionLocation(Model model,
                                         @RequestParam(name = "page", defaultValue = "0") int p,
                                         @RequestParam(name = "size", defaultValue = "9") int s,
-                                        @RequestParam(name="city",defaultValue="") String city) {
+                                        @RequestParam(name = "city", defaultValue = "") String city) {
 
         model.addAttribute("size", s);
         model.addAttribute("currentPage", p);
-        model.addAttribute("city",city);
+        model.addAttribute("city", city);
         model.addAttribute("Paris");
         model.addAttribute("Londres");
         model.addAttribute("Madrid");
@@ -49,16 +49,16 @@ public class CourseSessionController {
         Iterable<Location> locationList = this.getAllLocation();
         model.addAttribute("locationList", locationList);
 
-        for (Location l : locationList){
-            model.addAttribute(l.getCity(),l);
+        for (Location l : locationList) {
+            model.addAttribute(l.getCity(), l);
         }
 
         Page<CourseSession> courseSessions;
-        if(city.equals("Paris")) {
+        if (city.equals("Paris")) {
             courseSessions = courseSessionRepository.findByCity("Paris", new PageRequest(p, s));
-        }else if(city.equals("Londres")) {
+        } else if (city.equals("Londres")) {
             courseSessions = courseSessionRepository.findByCity("Londres", new PageRequest(p, s));
-        }else{
+        } else {
             courseSessions = courseSessionRepository.findByCity("Madrid", new PageRequest(p, s));
         }
         model.addAttribute("listSessions", courseSessions.getContent());
@@ -71,7 +71,6 @@ public class CourseSessionController {
     }
 
 
-
     @RequestMapping(value = "/index")
     public String courseSessions(Model model,
                                  @RequestParam(name = "page", defaultValue = "0") int p,
@@ -81,7 +80,7 @@ public class CourseSessionController {
                                  @RequestParam(name = "using", defaultValue = "") String using,
                                  @RequestParam(name = "finding", defaultValue = "") String finding,
                                  @RequestParam(name = "with", defaultValue = "") String with,
-                                 @RequestParam(name="city",defaultValue="") Long city) {
+                                 @RequestParam(name = "city", defaultValue = "") Long city) {
 
         try {
             model.addAttribute("size", s);
@@ -99,7 +98,7 @@ public class CourseSessionController {
             model.addAttribute("DESC");
             model.addAttribute("id");
             model.addAttribute("myDate");
-            model.addAttribute("city",city);
+            model.addAttribute("city", city);
 
 
             Page<CourseSession> courseSessions;
@@ -281,7 +280,7 @@ public class CourseSessionController {
 
     @RequestMapping(value = "/saveSession", method = RequestMethod.POST)
     public String saveSession(Model model, @Valid CourseSession cs, BindingResult bindingResult, Long id) {
-        if(courseSessionRepository.existsById(id)) {
+        if (courseSessionRepository.existsById(id)) {
             model.addAttribute("courseSession", cs);
             if (bindingResult.hasErrors()) {
                 return "editSessions";
@@ -295,5 +294,5 @@ public class CourseSessionController {
     public Iterable<Location> getAllLocation() {
         return locationRepository.findAll();
     }
-    }
+}
 
